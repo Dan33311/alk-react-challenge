@@ -1,3 +1,6 @@
+import axios from 'axios'
+
+
 const Login = () => {
 
   const handleSubmit = (event) => {
@@ -24,6 +27,12 @@ const Login = () => {
     }
 
     console.log('success, we are ready for the next step');
+
+    axios
+      .post('http://challenge-react.alkemy.org', { email, password} )
+      .then(res => {
+        console.log(res.data);
+      })
   }
 
   return (
@@ -42,6 +51,8 @@ const Login = () => {
         <br />
 
         <button>Login</button>
+        <br />
+
       </form>
     </>
   );
