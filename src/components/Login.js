@@ -1,14 +1,18 @@
 import axios from 'axios'
 import swAlert from '@sweetalert/with-react';
+import { useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
+  const navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
     const email = event.target.email.value
     const password = event.target.password.value
+
+    
 
     if(email === '' || password === ''){
       swAlert(<p>there is empty fields</p>)
@@ -31,7 +35,10 @@ const Login = () => {
       .post('http://challenge-react.alkemy.org', { email, password} )
       .then(res => {
         swAlert(<p>success, we are ready for the next step</p>)
-        console.log(res.data); // TOKEN gotten
+        const token = res.data.token
+        localStorage.setItem('token', token)
+        navigate('/list')
+        // console.log(res.data); // TOKEN gotten
       })
   }
 
