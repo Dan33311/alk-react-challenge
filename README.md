@@ -18,9 +18,16 @@ this is a React challenge, just working on
 [x] react-router-dom basic configuration
 [x] use react-router-dom to redirect a new view (when login success and token)
 [x] not allowed render list view if does not token, and return to login
+
 [x] 3.1 Header component + Link to
 [x] 3.2 Footer component
 [x] 3.3 Integration of the new components 
+[x] 3.4 components integration
+[x] 3.5 css integration (Bootstrap)
+
+[ ] 4
+
+
 
 
 ## Getting Started with Create React App

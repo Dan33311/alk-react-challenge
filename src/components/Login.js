@@ -44,20 +44,20 @@ const Login = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} className="mt-5 text-center">
+        <label className='mb-2'>
           <span>Email:</span><br />
-          <input type="text" name="email" />
+          <input className='form-control' type="text" name="email" />
         </label>
         <br />
 
-        <label>
+        <label className='mb-2'>
           <span>Password:</span><br />
-          <input type="password" name="password" />
+          <input className='form-control' type="password" name="password" />
         </label>
         <br />
 
-        <button>Login</button>
+        <button className='btn btn-primary mt-2 px-5'>Login</button>
         <br />
 
       </form>
