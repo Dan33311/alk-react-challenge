@@ -22,10 +22,11 @@ this is a React challenge, just working on
 [x] 3.1 Header component + Link to
 [x] 3.2 Footer component
 [x] 3.3 Integration of the new components 
-[x] 3.4 components integration
-[x] 3.5 css integration (Bootstrap)
+[x] 3.4 Components integration
+[x] 3.5 CSS integration (Bootstrap)
 
-[ ] 4
+[x] 4.1 Armado de vista listado
+[x] 4.2 Proteccion de la ruta listado (renderizado condicional)
 
 
 
