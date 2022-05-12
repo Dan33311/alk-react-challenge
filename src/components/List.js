@@ -1,24 +1,29 @@
-// import { useEffect } from 'react';
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 import { useNavigate, Navigate } from 'react-router-dom'
 
 
 const List = () => {
   const navigate = useNavigate()
-
   let token = localStorage.getItem('token')
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token')
+  const [moviesList, setMoviesList] = useState([])
 
-  //   if(token === null){
-  //     navigate('/')
-  //   }
-  // })
+  useEffect(() => {
+    const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=7da254b3265dbe13ced304d0fec013cf&language=en-US'
+    axios
+      .get(endPoint)
+      .then(response => {
+        const apiData = response.data.results
+        setMoviesList(apiData)
+      })
+  }, [setMoviesList])
+
+  console.log( '>>> moviesList:', moviesList)
 
 
   return (
     <>
-
       { !token 
         ? 
           <Navigate to="/" />
@@ -41,4 +46,4 @@ const List = () => {
   );
 }
 
-export default List;
+export default List

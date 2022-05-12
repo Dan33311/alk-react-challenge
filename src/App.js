@@ -2,10 +2,10 @@
 import { Routes, Route } from 'react-router-dom'
 
 // components
-import Login from "./components/Login";
-import List from "./components/List";
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Login from "./components/Login"
+import List from "./components/List"
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 // styles
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
@@ -28,7 +28,7 @@ function App() {
       <Footer />
 
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,6 +1,6 @@
 import { Navigate, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import swAlert from '@sweetalert/with-react';
+import swAlert from '@sweetalert/with-react'
 
 
 const Login = () => {
@@ -75,7 +75,7 @@ const Login = () => {
           
       }
     </>
-  );
+  )
 }
 
-export default Login;
+export default Login
