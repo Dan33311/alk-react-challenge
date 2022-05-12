@@ -52,6 +52,8 @@ this is a React challenge, just working on
 
 [x] 5.1 Details route protection, localStorage to sessionStorage
 
+[x] 5.2 Getting ID from details url, and Details view basics
+
 
 
 
