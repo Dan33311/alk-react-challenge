@@ -25,6 +25,7 @@ this is a React challenge, just working on
 
 [x] not allowed render list view if does not token, and return to login
 
+
 [x] 3.1 Header component + Link to
 
 [x] 3.2 Footer component
@@ -34,6 +35,7 @@ this is a React challenge, just working on
 [x] 3.4 Components integration
 
 [x] 3.5 CSS integration (Bootstrap)
+
 
 [x] 4.1 building List component view
 
@@ -45,7 +47,10 @@ this is a React challenge, just working on
 
 [x] 4.5 Handle errors getting API data
 
-[x] 4.6 Details route from each item with unique url
+[x] 4.6 Details route for each item with unique url
+
+
+[x] 5.1 Details route protection, localStorage to sessionStorage
 
 
 

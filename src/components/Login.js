@@ -34,13 +34,13 @@ const Login = () => {
       .then(res => {
         swAlert(<p>success, we are ready for the next step</p>)
         const token = res.data.token
-        localStorage.setItem('token', token)
+        sessionStorage.setItem('token', token)
         navigate('/list')
         // console.log(res.data); // TOKEN gotten
       })
   }
 
-  let token = localStorage.getItem('token')
+  let token = sessionStorage.getItem('token')
 
 
   return (

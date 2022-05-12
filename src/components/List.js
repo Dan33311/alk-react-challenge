@@ -6,7 +6,7 @@ import swAlert from '@sweetalert/with-react'
 
 const List = () => {
   const navigate = useNavigate()
-  let token = localStorage.getItem('token')
+  let token = sessionStorage.getItem('token')
   const apiKey = process.env.REACT_APP_API_KEY
 
   const [moviesList, setMoviesList] = useState([])
