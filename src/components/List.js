@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useNavigate, Navigate, Link } from 'react-router-dom'
-import axios from 'axios'
-import swAlert from '@sweetalert/with-react'
+import { useEffect, useState } from "react"
+import { useNavigate, Navigate, Link } from "react-router-dom"
+import axios from "axios"
+import swAlert from "@sweetalert/with-react"
 
 
 const List = () => {

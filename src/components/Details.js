@@ -1,4 +1,8 @@
+import axios from "axios"
+import { useEffect } from "react"
 import { Navigate } from "react-router-dom"
+import swAlert from "@sweetalert/with-react"
+
 
 const Details = () => {
   const token = sessionStorage.getItem('token')
@@ -6,7 +10,20 @@ const Details = () => {
   let query = new URLSearchParams(window.location.search)
   let movieID = query.get('movieID')
 
-  console.log(movieID);
+  useEffect(() => {
+    const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+    axios
+      .get(endPoint)
+      .then(response => {
+        const movieData = response.data
+        // console.log(">>>movieData:", movieData);
+      })
+      .catch(error => {
+        swAlert(<p>{error.message}</p>)
+      })
+    // console.log(endPoint);
+  }, [movieID])
+  // console.log(movieID);
 
 
   return (

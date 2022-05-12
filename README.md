@@ -54,6 +54,8 @@ this is a React challenge, just working on
 
 [x] 5.2 Getting ID from details url, and Details view basics
 
+[x] 5.3 Getting movie details from API
+
 
 
 
