@@ -12,8 +12,6 @@ const Login = () => {
     const email = event.target.email.value
     const password = event.target.password.value
 
-    
-
     if(email === '' || password === ''){
       swAlert(<p>there is empty fields</p>)
       return

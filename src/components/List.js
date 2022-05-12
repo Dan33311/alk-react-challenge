@@ -1,6 +1,7 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate, Navigate } from 'react-router-dom'
+import axios from 'axios'
+import swAlert from '@sweetalert/with-react'
 
 
 const List = () => {
@@ -18,6 +19,9 @@ const List = () => {
         const apiData = response.data.results
         setMoviesList(apiData)
       })
+      .catch(error => {
+        swAlert(<p>{error.message}</p>)
+      })
   }, [setMoviesList])
 
 
@@ -29,7 +33,7 @@ const List = () => {
         : 
         <div className="row">
           { moviesList.map((movie, index) => (            
-            <div className="col-3 py-4" key={index}>
+            <div className="col-sm-6 col-md-4 col-lg-3 py-4" key={index}>
               <div className="card">
                 <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                 <div className="card-body">
