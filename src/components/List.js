@@ -9,8 +9,13 @@ const List = () => {
 
   const [moviesList, setMoviesList] = useState([])
 
+  const apiKey = process.env.REACT_APP_API_KEY
+
+  console.log('>>>apiKey:', apiKey);
+
   useEffect(() => {
-    const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=7da254b3265dbe13ced304d0fec013cf&language=en-US'
+    // const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=7da254b3265dbe13ced304d0fec013cf&language=en-US'
+    const endPoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US`
     axios
       .get(endPoint)
       .then(response => {
