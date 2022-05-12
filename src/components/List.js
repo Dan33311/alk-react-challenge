@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, Navigate } from 'react-router-dom'
+import { useNavigate, Navigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import swAlert from '@sweetalert/with-react'
 
@@ -39,8 +39,8 @@ const List = () => {
                 <div className="card-body">
                   <h5 className="card-title">{movie.title.substring(0, 36)}</h5>
                   <p className="card-text">{movie.overview.substring(0, 80)}</p>
-                  <button onClick={() => navigate('/details')} className="btn btn-primary">Details</button>
-                  {/* <Link to="/" className="btn btn-primary">Go somewhere</Link> */}
+                  {/* <button onClick={() => navigate('/details')} className="btn btn-primary">Details</button> */}
+                  <Link to={`/details?movieID=${movie.id}`} className="btn btn-primary">Go somewhere</Link>
                 </div>
               </div>
             </div>

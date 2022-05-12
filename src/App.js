@@ -1,14 +1,15 @@
 // libraries
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom"
 
 // components
 import Login from "./components/Login"
 import List from "./components/List"
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Details from "./components/Details"
 
 // styles
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/list" element={<List />} />
+          <Route path="/details" element={<Details />} />
         </Routes>
       </div>
 

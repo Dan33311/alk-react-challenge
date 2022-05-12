@@ -41,7 +41,11 @@ this is a React challenge, just working on
 
 [x] 4.3 Getting data from API
 
+[x] 4.4 Render API data in component
 
+[x] 4.5 Handle errors getting API data
+
+[x] 4.6 Details route from each item with unique url
 
 
 
