@@ -6,15 +6,11 @@ import { useNavigate, Navigate } from 'react-router-dom'
 const List = () => {
   const navigate = useNavigate()
   let token = localStorage.getItem('token')
+  const apiKey = process.env.REACT_APP_API_KEY
 
   const [moviesList, setMoviesList] = useState([])
 
-  const apiKey = process.env.REACT_APP_API_KEY
-
-  console.log('>>>apiKey:', apiKey);
-
   useEffect(() => {
-    // const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=7da254b3265dbe13ced304d0fec013cf&language=en-US'
     const endPoint = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US`
     axios
       .get(endPoint)
@@ -24,8 +20,6 @@ const List = () => {
       })
   }, [setMoviesList])
 
-  console.log( '>>> moviesList:', moviesList)
-
 
   return (
     <>
@@ -33,19 +27,22 @@ const List = () => {
         ? 
           <Navigate to="/" />
         : 
-          <div className="row">
-            <div className="col-3">
-              <div className="card" style={{width: '18rem'}}>
-                <img className="card-img-top" src="..." alt='...'/>
+        <div className="row">
+          { moviesList.map((movie, index) => (            
+            <div className="col-3 py-4" key={index}>
+              <div className="card">
+                <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
                 <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 className="card-title">{movie.title.substring(0, 36)}</h5>
+                  <p className="card-text">{movie.overview.substring(0, 80)}</p>
                   <button onClick={() => navigate('/details')} className="btn btn-primary">Details</button>
                   {/* <Link to="/" className="btn btn-primary">Go somewhere</Link> */}
                 </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+          
       }
     </>
   );
