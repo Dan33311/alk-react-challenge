@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Navigate } from "react-router-dom"
 import swAlert from "@sweetalert/with-react"
 
@@ -10,44 +10,67 @@ const Details = () => {
   let query = new URLSearchParams(window.location.search)
   let movieID = query.get('movieID')
 
+  const [movieDetails, setMovieDetails] = useState(null)
+
   useEffect(() => {
     const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     axios
       .get(endPoint)
       .then(response => {
         const movieData = response.data
-        // console.log(">>>movieData:", movieData);
+        setMovieDetails(movieData)
       })
       .catch(error => {
         swAlert(<p>{error.message}</p>)
       })
-    // console.log(endPoint);
   }, [movieID])
-  // console.log(movieID);
+
 
 
   return (
     <>
-      { !token 
-        ? 
-          <Navigate to="/" />
-        : 
-          <div className="row">
-            <div className="col-6">
-              <h2>Title:</h2>
-              <img src="" alt="poster_path" />
-              <h5>genres</h5>
-              <ul>
-                <li>genre 1</li>
-                <li>genre 2</li>
-                <li>genre 3</li>
-              </ul>
-              <h5>vote_average</h5>
-              <h5>release_date</h5>
-              <h5>overview</h5>
+      { !token && <Navigate to="/" /> }
+      { !movieDetails && <p>Loading...</p> }
+      { movieDetails
+        &&
+          <div className="container mt-5">
+            <div className="row justify-content-center">
+              {/* TODO: practice bootstrap grid with this structure */}
+              <div className="col-4">
+                <img src={`https://image.tmdb.org/t/p/w300/${movieDetails.poster_path}`} alt="poster_path" />
+                {/* <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`} alt="poster_path" /> */}
+                
+                {/* belongs_to_collection is an object and in some movies its value is null */}
+                {/* <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.belongs_to_collection?.backdrop_path}`} alt="poster_path" /> */}
+                {/* <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.belongs_to_collection?.poster_path}`} alt="poster_path" /> */}
+              </div>
+              <div className="col-8 col-md-6">
+                <h2>{movieDetails.title}</h2>
+                <p>{movieDetails.overview}</p>
+                <h5>Genres: </h5>
+                <ul>
+                  {movieDetails.genres.map((genre, index) => (
+                    <li key={index}>{genre.name}</li>
+                    ))}
+                </ul>
+                <h5>Average: </h5>
+                <p>{movieDetails.vote_average}/10</p>
+                {/* <h5>Language: </h5>
+                <ul>
+                  {movieDetails.spoken_languages.map(language => (
+                    <li>{language.english_name}</li>
+                  ))}
+                </ul> */}
+
+                <h5>Release Date: </h5>
+                <p>{movieDetails.release_date}</p>
+                <h5>Runtimee: </h5>
+                <p>{movieDetails.runtime} minutes</p> 
+              </div>
             </div>
           </div>
       }
+      
     </>
   )
 }
@@ -55,7 +78,8 @@ const Details = () => {
 export default Details
 
 
-// DOCUMENTATION
+
+// API DOCUMENTATION
 // https://developers.themoviedb.org/3/movies/get-movie-details
 
 // Testing the URL

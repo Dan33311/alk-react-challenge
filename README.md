@@ -56,6 +56,9 @@ this is a React challenge, just working on
 
 [x] 5.3 Getting movie details from API
 
+[x] 5.4 Save API data into the State and render API data
+
+[ ] 5.5
 
 
 
