@@ -34,43 +34,52 @@ const Details = () => {
       { movieDetails
         &&
           <div className="container mt-5">
-            <div className="row justify-content-center">
+            <div className="d-flex flex-direction-row justify-content-center align-items-center">
               {/* TODO: practice bootstrap grid with this structure */}
-              <div className="col-4">
-                <img src={`https://image.tmdb.org/t/p/w300/${movieDetails.poster_path}`} alt="poster_path" />
+              <div className="d-flex flex-direction-column justify-content-center align-items-center" style={{width: '500px'}}>
+                <img 
+                  src={`https://image.tmdb.org/t/p/w300/${movieDetails.poster_path}`} 
+                  alt="poster_path" 
+                  style={{width: '300px', height: 'auto'}}
+                  className="img-fluid float-left mw-100 mh-100"
+                />
                 {/* <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`} alt="poster_path" /> */}
                 
                 {/* belongs_to_collection is an object and in some movies its value is null */}
                 {/* <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.belongs_to_collection?.backdrop_path}`} alt="poster_path" /> */}
                 {/* <img src={`https://image.tmdb.org/t/p/w500/${movieDetails.belongs_to_collection?.poster_path}`} alt="poster_path" /> */}
               </div>
-              <div className="col-8 col-md-6">
-                <h2>{movieDetails.title}</h2>
-                <p>{movieDetails.overview}</p>
-                <h5>Genres: </h5>
-                <ul>
+              <div className="" style={{width: '400px'}}>
+                <h2 className="text-success mt-2">{movieDetails.title.toUpperCase()}</h2>
+                <p className="ms-2">{movieDetails.overview}</p>
+                <div className="d-flex flex-direction-row align-items-baseline">
+                  <h5 className="text-success">Genres:&nbsp;&nbsp;</h5>
                   {movieDetails.genres.map((genre, index) => (
-                    <li key={index}>{genre.name}</li>
-                    ))}
-                </ul>
-                <h5>Average: </h5>
-                <p>{movieDetails.vote_average}/10</p>
-                {/* <h5>Language: </h5>
-                <ul>
-                  {movieDetails.spoken_languages.map(language => (
-                    <li>{language.english_name}</li>
+                    <p key={index}>{genre.name}&nbsp;&nbsp;</p>
                   ))}
-                </ul> */}
-
-                <h5>Release Date: </h5>
-                <p>{movieDetails.release_date}</p>
-                <h5>Runtimee: </h5>
-                <p>{movieDetails.runtime} minutes</p> 
+                </div>
+                <div className="d-flex flex-direction-row align-items-baseline">
+                  <h5 className="text-success">Average:&nbsp;&nbsp;</h5>
+                  <p>{movieDetails.vote_average}/10</p>
+                </div>
+                <div className="d-flex flex-direction-row align-items-baseline">
+                  <h5 className="text-success">Language:&nbsp;&nbsp;</h5>
+                  {movieDetails.spoken_languages.map((language, index) => (
+                    <p key={index}>{language.english_name}&nbsp;&nbsp;</p>
+                  ))}
+                </div>
+                <div className="d-flex flex-direction-row align-items-baseline">
+                  <h5 className="text-success">Release Date:&nbsp;&nbsp;</h5>
+                  <p>{movieDetails.release_date}</p>
+                </div>
+                <div className="d-flex flex-direction-row align-items-baseline">
+                  <h5 className="text-success">Runtime:&nbsp;&nbsp;</h5>
+                  <p>{movieDetails.runtime} minutes</p> 
+                </div>
               </div>
             </div>
           </div>
       }
-      
     </>
   )
 }

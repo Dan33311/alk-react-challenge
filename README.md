@@ -58,7 +58,8 @@ this is a React challenge, just working on
 
 [x] 5.4 Save API data into the State and render API data
 
-[ ] 5.5
+
+[x] 6.1 Search Bar Component basics
 
 
 

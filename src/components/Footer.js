@@ -5,7 +5,7 @@ const Footer = () => {
         <li><a href="hhtp://twitter.com" rel="noopener noreferrer" >Twitter</a></li>
         <li><a href="hhtp://github.com" rel="noopener noreferrer" >GitHub</a></li>
       </ul> */}
-      <p className="text-b text-center text-light pt-3">© 2022 - Alkemy pre-challenger</p>
+      <p className="text-b text-center text-light pt-3">© 2022 - React pre-challenge</p>
     </footer>
   );
 }
