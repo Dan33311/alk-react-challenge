@@ -1,6 +1,6 @@
-import { Navigate, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import swAlert from '@sweetalert/with-react'
+import { Navigate, useNavigate } from "react-router-dom"
+import axios from "axios"
+import swAlert from "@sweetalert/with-react"
 
 
 const Login = () => {
@@ -52,19 +52,19 @@ const Login = () => {
           <div className="container">
             <div className="row d-flex flex-column justify-content-center align-items-center mt-5">
               <form onSubmit={handleSubmit} className="col-8 col-sm-6 col-md-6 col-lg-4">
-                <label className='mb-2 w-100'>
+                <label className="mb-2 w-100">
                   <span>Email:</span><br />
-                  <input className='form-control' type="text" name="email" />
+                  <input className="form-control" type="text" name="email" />
                 </label>
                 <br />
 
-                <label className='mb-2 w-100'>
+                <label className="mb-2 w-100">
                   <span>Password:</span><br />
-                  <input className='form-control' type="password" name="password" />
+                  <input className="form-control" type="password" name="password" />
                 </label>
                 <br />
 
-                <button className='btn btn-primary mt-2 w-100'>Login</button>
+                <button className="btn btn-primary mt-2 w-100">Login</button>
                 <br />
 
               </form>

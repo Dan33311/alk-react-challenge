@@ -7,6 +7,7 @@ import List from "./components/List"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Details from "./components/Details"
+import Results from "./components/Results"
 
 // styles
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/list" element={<List />} />
           <Route path="/details" element={<Details />} />
+          <Route path="/results" element={<Results />} />
         </Routes>
       </div>
 
