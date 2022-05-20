@@ -65,7 +65,7 @@ this is a React challenge, just working on
 
 [x] 6.3 Results Component, redirect to Results using searchBar value. (redirect, URLParams)
 
-[ ] 6.4
+[x] 6.4 Get search results from API, results validations and render the data results 
 
 
 

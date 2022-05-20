@@ -27,7 +27,7 @@ const List = () => {
 
   return (
     <>
-      { !token 
+      {!token 
         ? 
           <Navigate to="/" />
         : 
