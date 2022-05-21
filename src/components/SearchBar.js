@@ -24,7 +24,7 @@ const SearchBar = () => {
   return (
     <form className="d-flex align-items-center" onSubmit={handleSubmit}>
       <label className="me-2">
-        <input className="form-control" type="text" name="keyword"/>
+        <input className="form-control form-control-sm" type="text" name="keyword"/>
       </label>
       <button className="btn btn-primary py-1">Search</button>
     </form>

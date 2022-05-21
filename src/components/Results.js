@@ -17,11 +17,10 @@ const Results = () => {
       .then(response => {
         const searchResults = response.data.results
         
-        setSearchMoviesResults(searchResults);
-
-        if(searchMoviesResults.length === 0) {
+        if(searchResults.length === 0) {
           swAlert(<p>There is not results</p>)
         }
+        setSearchMoviesResults(searchResults);
       })
       .catch(error => {
         swAlert(<p>{error.message}</p>)
@@ -33,14 +32,14 @@ const Results = () => {
   // TODO: work in this 
   return (
     <>
-      <h5>Your search: <em>{keyword}</em></h5>
+      <h5 className="pt-2">Results for: <em>{keyword}</em></h5>
 
       {!searchMoviesResults && <h2>Loading...</h2>}
 
       {searchMoviesResults.length === 0 && <h5>There is not results!</h5>}
 
-      {searchMoviesResults 
-        && 
+      {/* {searchMoviesResults 
+        &&  */}
           <div className="row">
             { searchMoviesResults.map((movie, index) => (            
               <div className="col-sm-6 col-md-4 col-lg-3 py-4" key={index}>
@@ -53,7 +52,7 @@ const Results = () => {
               </div>
             ))}
           </div>
-        }
+        
       
     </>
   )

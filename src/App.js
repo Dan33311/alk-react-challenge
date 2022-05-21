@@ -20,7 +20,7 @@ function App() {
 
       <Header />
 
-      <div className="container mt-3">
+      <div>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/list" element={<List />} />
