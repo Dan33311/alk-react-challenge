@@ -4,7 +4,8 @@ import axios from "axios"
 import swAlert from "@sweetalert/with-react"
 
 
-const List = () => {
+const List = (props) => {
+  console.log('props:', props);
   const navigate = useNavigate()
   let token = sessionStorage.getItem('token')
   const apiKey = process.env.REACT_APP_API_KEY
@@ -41,6 +42,11 @@ const List = () => {
                   <p className="card-text">{movie.overview.substring(0, 80)}</p>
                   {/* <button onClick={() => navigate('/details')} className="btn btn-primary">Details</button> */}
                   <Link to={`/details?movieID=${movie.id}`} className="btn btn-primary">Details</Link>
+                  <button 
+                    onClick={props.addOrRemoveFromFavs} 
+                    className="btn btn-primary ms-2"
+                    data-movie-id={movie.id}
+                  >🤍</button>
                 </div>
               </div>
             </div>

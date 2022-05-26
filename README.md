@@ -67,6 +67,21 @@ this is a React challenge, just working on
 
 [x] 6.4 Get data from API by keyword, results validations and render the data results 
 
+[ ] 6.5 Logic for Add to favourites
+
+        * Favorites button in List
+        * Props from App to List
+        * e.currentTarget (get the <button>)
+        * .parentElement (get the parent of <button>)
+        * capture attributes(url) for img tag
+        * group into an object previous keys and values
+        * use data attributes in order to get the movieId
+
+
+
+
+
+
 
 
 ## Getting Started with Create React App
