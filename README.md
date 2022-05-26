@@ -77,7 +77,9 @@ this is a React challenge, just working on
         * group into an object previous keys and values
         * use data attributes in order to get the movieId
 
-
+        * store favorites in localStorage
+        * validation -> if there is not favorites
+        * onClick button -> store a movie into fav localStore
 
 
 

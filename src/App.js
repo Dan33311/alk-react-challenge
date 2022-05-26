@@ -14,6 +14,15 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
 function App() {
+  const favMovies = localStorage.getItem('favs')
+
+  let tempMoviesInFavs
+
+  if (favMovies === null) {
+    tempMoviesInFavs = []
+  } else {
+    console.log('there is movies in favs');
+  }
 
   const addOrRemoveFromFavs = (e) => {
     const btn = e.currentTarget
@@ -28,13 +37,10 @@ function App() {
       title,
       overview,
     }
-    // console.log("addOrRemoveFromFavs function working");
-    // console.log("btn", btn);
-    // console.log("parent", parent);
-    // console.log('imgURL:', imgURL);
-    // console.log('title:', title);
-    // console.log('overview:', overview);
-    console.log("movieData:", movieData);
+    tempMoviesInFavs.push(movieData)
+    localStorage.setItem('favs', JSON.stringify(tempMoviesInFavs))
+    // console.log("movieData:", movieData);
+    // console.log("tempMoviesInFavs:", tempMoviesInFavs);
   }
 
   return (
