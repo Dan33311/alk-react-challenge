@@ -8,6 +8,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Details from "./components/Details"
 import Results from "./components/Results"
+import Favorites from "./components/Favorites"
 
 // styles
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -54,8 +55,6 @@ function App() {
       localStorage.setItem('favs', JSON.stringify(moviesLeft))
       console.log('movie removed from favorites');
     }
-    // console.log("movieData:", movieData);
-    // console.log("tempMoviesInFavs:", tempMoviesInFavs);
   }
 
 
@@ -70,6 +69,7 @@ function App() {
           <Route path="/list" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
           <Route path="/details" element={<Details />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </div>
 

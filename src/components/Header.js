@@ -10,6 +10,7 @@ const Header = () => {
           <ul className="navbar-nav d-flex flex-row">
             <li className="nav-item pe-4"><Link className="nav-link" to="/">Home</Link></li>
             <li className="nav-item pe-4"><Link className="nav-link" to="/list">List</Link></li>
+            <li className="nav-item pe-4"><Link className="nav-link" to="/favorites">Favorites</Link></li>
           </ul>
           <SearchBar />
         </div>

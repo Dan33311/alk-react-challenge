@@ -67,7 +67,7 @@ this is a React challenge, just working on
 
 [x] 6.4 Get data from API by keyword, results validations and render the data results 
 
-[ ] 6.5 Logic for Add to favourites
+[x] 6.5 Logic for Add to favourites
 
         * Favorites button in List
         * Props from App to List
@@ -82,6 +82,7 @@ this is a React challenge, just working on
         * onClick button -> store a movie into fav localStore
         * Do not store duplicated items
 
+[x] 6.6 Favourites component, use data from localStorage
 
 
 
