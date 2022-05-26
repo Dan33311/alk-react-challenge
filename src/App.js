@@ -14,17 +14,18 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
 function App() {
-  const favMovies = localStorage.getItem('favs')
-
-  let tempMoviesInFavs
-
-  if (favMovies === null) {
-    tempMoviesInFavs = []
-  } else {
-    console.log('there is movies in favs');
-  }
-
   const addOrRemoveFromFavs = (e) => {
+    const favMovies = localStorage.getItem('favs')
+
+    let tempMoviesInFavs
+
+    if (favMovies === null) {
+      tempMoviesInFavs = []
+    } else {
+      tempMoviesInFavs = JSON.parse(favMovies)
+      console.log('there is movies in favs');
+    }
+
     const btn = e.currentTarget
     const parent = btn.parentElement
     const grandParent = parent.parentElement
@@ -33,20 +34,34 @@ function App() {
     const overview = parent.querySelector('p').innerText
     console.log("btn.dataset:", btn.dataset);
     const movieData = {
-      imgURL,
       title,
+      imgURL,
       overview,
+      id: btn.dataset.movieId
     }
-    tempMoviesInFavs.push(movieData)
-    localStorage.setItem('favs', JSON.stringify(tempMoviesInFavs))
+
+    let movieIsInArray = tempMoviesInFavs.find(movie => movie.id === movieData.id)
+    console.log("movieIsInArray:", movieIsInArray);
+
+    if (!movieIsInArray) {
+      tempMoviesInFavs.push(movieData)
+      localStorage.setItem('favs', JSON.stringify(tempMoviesInFavs))
+      console.log("movie added to favorites");
+    } else {
+      // if the movie selected in arr -> remove and return the rest of movies
+      let moviesLeft = tempMoviesInFavs.filter(movie => movie.id !== movieData.id)
+      // store the rest (moviesLeft) in localStorage
+      localStorage.setItem('favs', JSON.stringify(moviesLeft))
+      console.log('movie removed from favorites');
+    }
     // console.log("movieData:", movieData);
     // console.log("tempMoviesInFavs:", tempMoviesInFavs);
   }
 
+
   return (
     
     <div className="App">
-
       <Header />
 
       <div>

@@ -80,7 +80,7 @@ this is a React challenge, just working on
         * store favorites in localStorage
         * validation -> if there is not favorites
         * onClick button -> store a movie into fav localStore
-
+        * Do not store duplicated items
 
 
 
