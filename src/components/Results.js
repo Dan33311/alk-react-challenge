@@ -29,7 +29,7 @@ const Results = () => {
 
   console.log('>>> searchMoviesResults:', searchMoviesResults)
 
-  // TODO: work in this 
+  // TODO: Search bar is not working in results path, work only if refresh
   return (
     <>
       <h5 className="pt-2">Results for: <em>{keyword}</em></h5>

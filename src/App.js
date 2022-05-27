@@ -1,4 +1,5 @@
 // libraries
+import { useState, useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 
 // components
@@ -15,6 +16,16 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 
 function App() {
+  const [favorites, setFavorites] = useState([])
+
+  useEffect(() => {
+    const favsInLocalStorage = localStorage.getItem('favs')
+    if (favsInLocalStorage !== null) {
+      const favsArray = JSON.parse(favsInLocalStorage)
+      setFavorites(favsArray)
+    }
+  }, [])
+
   const addOrRemoveFromFavs = (e) => {
     const favMovies = localStorage.getItem('favs')
 
@@ -24,7 +35,7 @@ function App() {
       tempMoviesInFavs = []
     } else {
       tempMoviesInFavs = JSON.parse(favMovies)
-      console.log('there is movies in favs');
+      console.log('there is movies in favs')
     }
 
     const btn = e.currentTarget
@@ -33,7 +44,7 @@ function App() {
     const imgURL = grandParent.querySelector('img').getAttribute('src')
     const title = parent.querySelector('h5').innerText
     const overview = parent.querySelector('p').innerText
-    console.log("btn.dataset:", btn.dataset);
+    // console.log("btn.dataset:", btn.dataset)
     const movieData = {
       title,
       imgURL,
@@ -42,18 +53,19 @@ function App() {
     }
 
     let movieIsInArray = tempMoviesInFavs.find(movie => movie.id === movieData.id)
-    console.log("movieIsInArray:", movieIsInArray);
 
     if (!movieIsInArray) {
       tempMoviesInFavs.push(movieData)
       localStorage.setItem('favs', JSON.stringify(tempMoviesInFavs))
-      console.log("movie added to favorites");
+      setFavorites(tempMoviesInFavs)
+      console.log("movie added to favorites")
     } else {
       // if the movie selected in arr -> remove and return the rest of movies
       let moviesLeft = tempMoviesInFavs.filter(movie => movie.id !== movieData.id)
       // store the rest (moviesLeft) in localStorage
       localStorage.setItem('favs', JSON.stringify(moviesLeft))
-      console.log('movie removed from favorites');
+      setFavorites(moviesLeft)
+      console.log('movie removed from favorites')
     }
   }
 
@@ -69,7 +81,7 @@ function App() {
           <Route path="/list" element={<List addOrRemoveFromFavs={addOrRemoveFromFavs} />} />
           <Route path="/details" element={<Details />} />
           <Route path="/results" element={<Results />} />
-          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/favorites" element={<Favorites favorites={favorites} addOrRemoveFromFavs={addOrRemoveFromFavs}/>} />
         </Routes>
       </div>
 

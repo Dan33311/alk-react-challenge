@@ -84,6 +84,8 @@ this is a React challenge, just working on
 
 [x] 6.6 Favourites component, use data from localStorage
 
+[x] 6.7 Favorites -> add button to add or remove to favs, route protection
+
 
 
 

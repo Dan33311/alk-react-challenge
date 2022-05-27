@@ -35,6 +35,7 @@ const Login = () => {
         swAlert(<p>success, we are ready for the next step</p>)
         const token = res.data.token
         sessionStorage.setItem('token', token)
+        // event.returnValue = true;  // the opostite to event.preventDefault()
         navigate('/list')
         // console.log(res.data); // TOKEN gotten
       })

@@ -5,8 +5,7 @@ import swAlert from "@sweetalert/with-react"
 
 
 const List = (props) => {
-  console.log('props:', props);
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   let token = sessionStorage.getItem('token')
   const apiKey = process.env.REACT_APP_API_KEY
 
